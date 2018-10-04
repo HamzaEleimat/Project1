@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculate your share</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Fira+Sans+Condensed|Francois+One|Maven+Pro|Patua+One" rel="stylesheet">
+	<script>
+	$(document).ready(function(){
+			var total = 0 , per = 1, x = 1; 
+		$('#go').click(function(){
+			console.log(total)
+			if(total === ''){
+				alert('please enter a number')
+			}
+		$('#tip').replaceWith('<li>'+"With the tip: "+ f(total) +'</li>')
+		$('#pers').replaceWith('<li>'+"Per Person: "+ c(per) +'</li>')
+		})
+		$("#total").keyup(function() {
+			total = $( this ).val();
+		}).keyup();
+		$("#persons").keyup(function() {
+		per = $(this).val();
+		}).keyup();
+		 function f (t) {
+		 	t = parseInt(t) ;
+			x = t * 0.15 + t ;
+			return t *0.15 + t ;
+		}
+		function c (p) {
+			return x/p;
+		}
+	})
+
+	</script>
+</head>
+<body>
+	<div class="container2">
+	<img src="https://images.wallpaperscraft.com/image/waiter_tray_white_background_79870_1920x1080.jpg">
+	<div class="centered2">	<ul>
+		<li>Total: <input id="total" type="text"></li>
+		<li id='tip'>With the tip:</li>
+		<li>Number of People: <input id="persons" type="text"></li>
+		<li id="pers">Per Person:</li>
+	</ul>
+	<button id="go">Go!</button></div>
+</div>
+</body>
+</html>
